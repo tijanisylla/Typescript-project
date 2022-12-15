@@ -4,7 +4,7 @@ import InputFeild from "./Components/InputFeild";
 import { Todo } from "./model";
 import TodoList from "./Components/TodoList";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
-import MyVideo from "./Components/video/videoBg.mp4";
+
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -59,18 +59,14 @@ const App: React.FC = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="App">
-        <div className="overlay"></div>
-        <video src={MyVideo} autoPlay loop muted />
-        <div className="content">
-          <span className="heading">React tasks</span>
-          <InputFeild todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-          <TodoList
-            todos={todos}
-            setTodos={setTodos}
-            completedTodos={completedTodos}
-            setCompletedTodos={setCompletedTodos}
-          />
-        </div>
+        <span className="heading">React tasks</span>
+        <InputFeild todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          completedTodos={completedTodos}
+          setCompletedTodos={setCompletedTodos}
+        />
       </div>
     </DragDropContext>
   );
